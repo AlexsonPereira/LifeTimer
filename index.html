@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>MyLifeCounter</title>
+</head>
+<body style="width: 100vw;">
+    <div class="first_step">
+        <div>
+            <h2>Contagem de vida em semanas</h2>
+            <p class="label">Digite o seu ano de nascimento</p>
+            <form onsubmit="submitFormYear(event)">
+                <input type="number" max="2099" min="1900" placeholder="Ex: 1998">
+                <button class="confirm" type="submit">OK</button>
+            </form>
+            <div id="error-date"></div>
+        </div>
+    </div>
+    <div class="final_result">
+        <h1 style="">Sua Vida em Semanas</h1>
+        <div class="inputs">
+    
+        </div>
+    </div>
+    
+</body>
+<script>
+
+    let yearValue
+
+    function submitFormYear(event){
+        event.preventDefault()
+        const year = document.querySelector("input[type='number']")
+        if(year.value.trim() == ""){
+            const errorDiv =  document.getElementById("error-date")
+            errorDiv.innerText = "Campo Vazio, preencha o campo para continuar"
+            setTimeout(()=>{
+                errorDiv.innerText = ""
+            },2000)
+        }else{
+            yearValue = year.value
+            document.querySelector(".first_step").style.display = "none"
+            document.querySelector(".final_result").style.display = "flex"
+            showFinishTable()
+        }
+    }
+
+    function showFinishTable(){
+        const years = Number(new Date().getFullYear()) - Number(yearValue)
+        console.log(years)
+        const divInputs = document.querySelector(".inputs")
+        for(let i = 0;i<=(76*52);i++){
+            const elementInput = document.createElement("input")
+            elementInput.style.accentColor= "#0000"
+            elementInput.type =  "checkbox"
+            if(i < (years*52)){
+                elementInput.checked = true
+            }
+            divInputs.appendChild(elementInput)
+        }
+    }
+
+</script>
+</html>

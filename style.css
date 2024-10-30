@@ -1,0 +1,120 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: "Inter", sans-serif;
+}
+
+html{
+    overflow-x: hidden;
+}
+
+
+.first_step{
+    
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    >div{
+
+        display: flex;
+        flex-direction: column;
+        max-width: 650px;
+        width: 100%;
+        padding: 0 16px;
+
+        h2{
+            text-align: center;
+
+            margin-bottom: 24px;
+        }
+
+        .label{
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        form{
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+
+            width: 80%;
+            margin: 0 auto ;
+
+            input{
+                padding-left: 8px;
+                width: 30%;
+                height: 40px;
+    
+            }
+    
+            button {
+                width: 18%;
+                background-color: transparent;
+                border: 1px solid black;
+                background-color: black;
+                color: white;
+                cursor: pointer;
+            
+            &:hover{
+                background-color: white;
+                color: black;
+                transition: 200ms;
+            
+                
+
+            }
+
+    
+            }
+
+        }
+
+
+        #error-date{
+            text-align: center;
+            font-size: 12px;
+            color: red;
+            margin-top: 8px;
+        } 
+    }
+}
+
+
+.final_result{
+    display: none;
+    flex-direction: column;
+    
+    h1{
+        margin: 48px auto;
+        width: fit-content;
+    }
+
+    .inputs{
+        display: flex;
+        width: 100%;
+        margin: 12px auto; 
+        max-width: 1280px;
+        flex-wrap: wrap; 
+        gap: 4px;
+        padding: 24px;
+    }
+}
+
+
+input[type=number] { 
+    -moz-appearance: textfield;
+    appearance: textfield;
+ 
+ }
+ 
+
+ input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
